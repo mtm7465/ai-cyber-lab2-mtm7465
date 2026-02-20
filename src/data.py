@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 
 # Constants (can be overridden when calling the function)
-DATA_PATH = "data/raw/dataset.csv"
+DATA_PATH = "data/raw/PhiUSIIL_Phishing_URL_Dataset.csv"
 LABEL_COL = "label"
 TEXT_COL = "text"
 
@@ -22,7 +22,7 @@ def load_and_split(
 ) -> Tuple:
     """Load CSV data, do basic cleaning, and return a stratified train/test split.
 
-    Track 1 note: `text_col` is expected to contain URL strings for phishing detection.
+    Track 1 note: PhiUSIIL uses engineered numeric URL features; `text_col` is optional.
 
     Behavior:
     - Loads `data_path` (CSV) into a DataFrame.

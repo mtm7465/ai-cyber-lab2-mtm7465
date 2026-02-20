@@ -4,10 +4,10 @@
 This project implements a minimal, reproducible baseline for **Track 1: Phishing Detection** (binary URL classification). It uses TF-IDF over URL strings (or numeric tabular features if provided) with standard scikit-learn models.
 
 ## Dataset Source and Features
-- **Source:** Lab 2 dataset located at `data/raw/dataset.csv`.
+- **Source:** PhiUSIIL Phishing URL Dataset at https://archive.ics.uci.edu/dataset/967/phiusiil%2Bphishing%2Burl%2Bdataset.
 - **Label column:** `label` (phishing vs. benign).
-- **Text feature column (recommended):** `text`, containing URL strings for TF-IDF.
-- **Tabular features (optional):** All numeric columns except `label` if `text` is not present.
+- **Text feature column (optional):** `text`, containing URL strings for TF-IDF if present.
+- **Tabular features (default):** Engineered numeric URL features (all numeric columns except `label`) when no text column is present.
 
 ## Installation
 ```bash
