@@ -1,2 +1,3 @@
-# ai-cyber-lab2-mtm7465
-Lab 2 submission
+# AI Cyber Lab 2
+
+Starter structure for Lab 2.
