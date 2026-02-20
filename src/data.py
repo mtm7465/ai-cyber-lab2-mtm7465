@@ -22,6 +22,8 @@ def load_and_split(
 ) -> Tuple:
     """Load CSV data, do basic cleaning, and return a stratified train/test split.
 
+    Track 1 note: `text_col` is expected to contain URL strings for phishing detection.
+
     Behavior:
     - Loads `data_path` (CSV) into a DataFrame.
     - Drops rows with missing labels and strips string columns.

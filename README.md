@@ -1,13 +1,13 @@
-# AI Cyber Lab 2 - Baseline ML Pipeline
+# AI Cyber Lab 2 - Track 1 Phishing Detection (Baseline ML Pipeline)
 
 ## Project Description
-This project implements a minimal, reproducible baseline for a cybersecurity classification task (Lab 2 track). It supports both text classification (TF-IDF + linear models) and numeric tabular classification with standard scikit-learn models.
+This project implements a minimal, reproducible baseline for **Track 1: Phishing Detection** (binary URL classification). It uses TF-IDF over URL strings (or numeric tabular features if provided) with standard scikit-learn models.
 
 ## Dataset Source and Features
-- **Source:** Course-provided Lab 2 dataset located at `data/raw/dataset.csv`.
-- **Label column:** `label` (configurable).
-- **Text feature column (optional):** `text` (used for TF-IDF if present).
-- **Tabular features:** All numeric columns except `label` when `text` is not present.
+- **Source:** Lab 2 dataset located at `data/raw/dataset.csv`.
+- **Label column:** `label` (phishing vs. benign).
+- **Text feature column (recommended):** `text`, containing URL strings for TF-IDF.
+- **Tabular features (optional):** All numeric columns except `label` if `text` is not present.
 
 ## Installation
 ```bash
