@@ -33,30 +33,6 @@ def ensure_results_dir(path: str):
         os.makedirs(d, exist_ok=True)
 
 
-def load_or_train_model(model_path: str = MODEL_PATH, **train_kwargs):
-    """Try to load model from `model_path`, otherwise train a deterministic model inline.
-
-    Returns (model, trained_flag)
-    """
-    if os.path.exists(model_path):
-        model = joblib.load(model_path)
-        return model, True
-
-    # Train inline deterministically using LogisticRegression
-    from sklearn.linear_model import LogisticRegression
-
-    X_train, X_test, y_train, y_test = load_and_split(**train_kwargs)
-
-    model = LogisticRegression(random_state=RANDOM_SEED, max_iter=1000)
-    # Convert sparse to dense for LogisticRegression if necessary
-    X_train_fit = X_train.toarray() if hasattr(X_train, "toarray") else X_train
-    model.fit(X_train_fit, y_train)
-    # Save model for future reuse
-    ensure_results_dir(model_path)
-    joblib.dump(model, model_path)
-    return model, False
-
-
 def plot_confusion_matrix(cm: np.ndarray, labels: list[str], out_path: str):
     plt.figure(figsize=(6, 5))
     plt.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues)
@@ -141,24 +117,6 @@ def evaluate(
 
 def main():
     evaluate()
-
-
-if __name__ == "__main__":
-    main()
-"""Evaluation entry point placeholder."""
-
-from pathlib import Path
-
-from .utils import log
-
-
-def main() -> None:
-    """Run placeholder evaluation workflow."""
-    project_root = Path(__file__).resolve().parents[1]
-    results_dir = project_root / "results"
-    log("Starting placeholder evaluation run")
-    log(f"Results directory: {results_dir}")
-    log("Evaluation complete (placeholder).")
 
 
 if __name__ == "__main__":
