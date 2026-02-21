@@ -4,7 +4,7 @@
 This project implements a minimal, reproducible baseline for **Track 1: Phishing Detection** (binary URL classification) using engineered URL features in a tabular ML pipeline. It is designed for reproducibility and clean experiment workflow rather than model complexity.
 
 ## Dataset Source and Features
-- **Source:** PhiUSIIL Phishing URL Dataset at https://archive.ics.uci.edu/dataset/967/phiusiil%2Bphishing%2Burl%2Bdataset.
+- **Source:** PhiUSIIL Phishing URL Dataset at https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset.
 - **Label column:** `label` (phishing vs. benign).
 - **Feature columns:** Engineered numeric URL features (all numeric columns except `label`).
 
